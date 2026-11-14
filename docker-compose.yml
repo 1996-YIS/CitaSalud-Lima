@@ -1,0 +1,16 @@
+services:
+  database:
+    image: postgres:16
+    container_name: citasalud_db
+    restart: always
+    environment:
+      POSTGRES_DB: citasalud_lima
+      POSTGRES_USER: citasalud
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
